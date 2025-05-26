@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+<meta name="google-site-verification" content="wrcIICVokQjr793LfaGVhALr9PFeRLmCdd6ORQVcYTA" />
 <title>A Modern Online Cake Shop in USA | Jemptrip</title>
 <meta name="Description" content="Jemptrip welcomes you to a new world of superb cakes, where each slice is a testament to our bakers’ extraordinary craftsmanship.">
 
@@ -37,7 +37,7 @@
 
 <!-- page wrapper -->
 <body>
-
+<?php include_once("php_script.php");?>
     <div class="boxed_wrapper">
 
         <!-- main header -->

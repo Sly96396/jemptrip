@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jemptrip.com/sitemap.xml
