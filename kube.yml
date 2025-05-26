@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: upacrav
+  name: jemptrip
 
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: regcred
-  namespace: upacrav
+  namespace: jemptrip
 type: kubernetes.io/dockerconfigjson
 data:
   .dockerconfigjson: eyJhdXRocyI6eyJoYXJib3IucmFtb2xhLnRvcCI6eyJ1c2VybmFtZSI6InNuYmVycnkiLCJwYXNzd29yZCI6IlFjazhdfktSU0EzX0s2VyIsImVtYWlsIjoiaW5mb0BoYXJib3IucmFtb2xhLnRvcCIsImF1dGgiOiJjMjVpWlhKeWVUcFJZMnM0WFg1TFVsTkJNMTlMTmxjPSJ9fX0=  # Replace with your actual base64 auth
@@ -19,21 +19,21 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: upacrav
-  namespace: upacrav
+  name: jemptrip
+  namespace: jemptrip
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: upacrav
+      app: jemptrip
   template:
     metadata:
       labels:
-        app: upacrav
+        app: jemptrip
     spec:
       containers:
-      - name: upacrav
-        image: harbor.ramola.top/img/upacrav:latest
+      - name: jemptrip
+        image: harbor.ramola.top/img/jemptrip:latest
         ports:
         - containerPort: 80
       imagePullSecrets:
@@ -43,11 +43,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: upacrav-service
-  namespace: upacrav
+  name: jemptrip-service
+  namespace: jemptrip
 spec:
   selector:
-    app: upacrav
+    app: jemptrip
   ports:
     - protocol: TCP
       port: 80
@@ -57,31 +57,31 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: upacrav-ingress
-  namespace: upacrav
+  name: jemptrip-ingress
+  namespace: jemptrip
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - host: upacrav.com
+  - host: jemptrip.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: upacrav-service
+            name: jemptrip-service
             port:
               number: 80
 
-  - host: www.upacrav.com
+  - host: www.jemptrip.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: upacrav-service
+            name: jemptrip-service
             port:
               number: 80

@@ -3,26 +3,26 @@ pipeline {
 
     environment {
         // GitHub configuration
-        GITHUB_REPO = 'Sly96396/upacrav'  // Your private GitHub repo
+        GITHUB_REPO = 'Sly96396/jemptrip'  // Your private GitHub repo
         GITHUB_BRANCH = 'main'                     // Branch to build
         GITHUB_CREDENTIALS_ID = 'github-creds'     // Jenkins credentials ID for GitHub
         
         // Docker image configuration
-        DOCKER_IMAGE_NAME = 'upacrav'      // Name for your Docker image
+        DOCKER_IMAGE_NAME = 'jemptrip'      // Name for your Docker image
         DOCKERFILE_PATH = 'Dockerfile'            // Path to your Dockerfile
         
         // Harbor registry configuration
         HARBOR_REGISTRY = 'harbor.ramola.top'  // Your Harbor registry URL
         HARBOR_PROJECT = 'img'            // Harbor project name
         DOCKER_CREDENTIALS_ID = 'harbor-creds'     // Jenkins credentials ID for Harbor
-        ARGOCD_APP_NAME = 'upacrav'
+        ARGOCD_APP_NAME = 'jemptrip'
         ARGOCD_PROJECT = 'default'
         ARGOCD_SERVER = 'argocd.ramola.top'
         ARGOCD_USERNAME = 'admin'
         ARGOCD_PASSWORD = 'XeMRMCQ6phpPzclF'
-        GIT_REPO_URL = 'https://github.com/Sly96396/upacrav.git'
+        GIT_REPO_URL = 'https://github.com/Sly96396/jemptrip.git'
         GIT_REVISION = 'HEAD'
-        DEST_NAMESPACE = 'upacrav'
+        DEST_NAMESPACE = 'jemptrip'
         DEST_SERVER = 'https://kubernetes.default.svc'
 
         BUILD_NUMBER = "0.0.2"
@@ -232,7 +232,7 @@ stage('Modify Manifest and Sync ArgoCD (No Push)') {
                         
                         Build URL: ${env.BUILD_URL}
                         Build Number: ${env.BUILD_NUMBER}
-                        Branch: ${env.GITHUB_BRANCH}upacrav
+                        Branch: ${env.GITHUB_BRANCH}jemptrip
                         
                         Please check the Jenkins logs for details.
                     """,
