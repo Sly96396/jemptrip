@@ -25,7 +25,7 @@ pipeline {
         DEST_NAMESPACE = 'jemptrip'
         DEST_SERVER = 'https://kubernetes.default.svc'
 
-        BUILD_NUMBER = "0.0.6"
+        BUILD_NUMBER = "0.0.7"
     }
 
     options {
