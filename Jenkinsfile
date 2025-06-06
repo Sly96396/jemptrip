@@ -25,7 +25,7 @@ pipeline {
         DEST_NAMESPACE = 'jemptrip'
         DEST_SERVER = 'https://kubernetes.default.svc'
 
-        BUILD_NUMBER = "0.0.7"
+        BUILD_NUMBER = "0.0.1"
     }
 
     options {
@@ -67,7 +67,7 @@ pipeline {
         }
         
 
-       stage('Build & Update Image in GitOps') {
+    /*   stage('Build & Update Image in GitOps') {
     steps {
         script {
             // Verify Docker credentials exist
@@ -103,7 +103,7 @@ pipeline {
                     sh 'docker system prune -f --filter "until=24h"'
                 }
             }
-        }
+        }*/
 
         stage('Login to ArgoCD') {
     steps {
